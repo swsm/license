@@ -1,0 +1,43 @@
+server:
+  port: 9345
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+    gzip:
+      enabled: true
+spring:
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  mvc:
+    async:
+      request-timeout: 30000
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  swagger:
+    enable: true
+    
+    
+# 公钥信息给到客户
+license:
+  subject: zy-customer
+  # 默认均用user
+  customerType: user
+  publicAlias: publicCert
+  # 按需修改密码
+  publicStorePass: public_password1234
+  # 私钥信息不能泄露
+  privateAlias: privateKey
+  # 按需修改密码
+  privateStorePass: private_password1234
+  
+  # 生成的证书存放目录，不同的客户生成的证书目录不同
+  licensePath: /license
+  # zip包下载后是否清除生成的zip包，默认清除
+  clear:
+    zip: true
+  # zip包下载后是否清楚压缩的目录，默认清除
+    dir: true
+

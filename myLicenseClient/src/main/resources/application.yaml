@@ -1,0 +1,29 @@
+server:
+  port: 9346
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+    gzip:
+      enabled: true
+spring:
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  mvc:
+    async:
+      request-timeout: 30000
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  swagger:
+    enable: true
+    
+    
+# 证书相关文件放置的路径
+license:
+  subject: test1
+  publicAlias: publicCert
+  publicStorePass: public_password1234
+  licensePath: /license/client/test1
+
